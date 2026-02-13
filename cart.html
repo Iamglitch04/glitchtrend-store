@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart</title>
+</head>
+
+<body>
+
+<h1>Your Cart</h1>
+<div id="cartItems"></div>
+
+<button onclick="orderNow()">Order on WhatsApp</button>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let output = "";
+let total = 0;
+
+cart.forEach(item => {
+  output += `<p>${item.name} - ₹${item.price}</p>`;
+  total += item.price;
+});
+
+document.getElementById("cartItems").innerHTML =
+  output + "<h3>Total: ₹" + total + "</h3>";
+
+function orderNow(){
+  window.open(
+   "https://wa.me/919686078395?text=I want to order ₹"+total
+  );
+}
+</script>
+
+</body>
+</html>

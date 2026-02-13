@@ -1,0 +1,1 @@
+# glitchtrend-store
